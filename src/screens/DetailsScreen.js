@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, ActivityIndicator, Text, View, Image } from 'react-native';
 // import Header from '@bit/tyson-foods-it.react-native-ui.components.header'; 
 import { createStackNavigator, navigation, navigate } from 'react-navigation';
-import HomeScreen from '../../App'; 
+// import HomeScreen from '../../App'; 
 
 class DetailsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -45,29 +45,6 @@ class DetailsScreen extends React.Component {
     );
   }
 }
-<HomeScreen /> 
-export class App extends React.Component {
-  render() {
-    return <RootStack />;
-  }
-}
-const RootStack = createStackNavigator(
-  {
-      Home: HomeScreen,
-      Details: DetailsScreen,
-  },
-  {
-      initialRouteName: 'Home',
-      navigationOptions: {
-        headerStyle: {
-          backgroundColor: '#002554', 
-        },
-        headerTintColor: '#fff', 
-        headerTitleStyle: {
-          fontWeight: 'bold', 
-        }, 
-      },
-  }
-);
+{/* <HomeScreen />  */}
   
 export default DetailsScreen;
