@@ -1,25 +1,23 @@
 import React from 'react';
-import { FlatList, ActivityIndicator, Text, View, Image } from 'react-native';
-// import Header from '@bit/tyson-foods-it.react-native-ui.components.header'; 
-import { createStackNavigator, navigation, navigate } from 'react-navigation';
-// import HomeScreen from '../../App'; 
+import { FlatList, ActivityIndicator, Text, View, Image, Button } from 'react-native';
+import RedditList from '../views/RedditList';
 
-class DetailsScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    const { params } = navigation.state;
-    
-    return {
-      title: params ? params.otherParam : 'A Nested Details Screen',
-    }
-  };
+
+export default class DetailsScreen extends React.Component {
   render() {
     const { navigation } = this.props; 
-    const itemId = navigation.getParam('itemId', 'NO-ID'); 
+    const itemId = navigation.getParam('itemId', 'WHAT NO-ID'); 
     const otherParam = navigation.getParam('otherParam', 'some default value'); 
   
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
+      <View style={{ flex: 1, }}>
+        <Button
+            title = "Go to Details... again"
+            onPress={() => this.props.navigation.navigate('Details')}
+          /> 
+          <RedditList  navigation={this.props.navigation}/>
+      
+        {/* <Text>Details Screen</Text>
         <Text>itemId: {JSON.stringify(itemId)}</Text> 
         <Text>OtherParam: {JSON.stringify(otherParam)}</Text> 
         <Button
@@ -35,16 +33,13 @@ class DetailsScreen extends React.Component {
         />
       <Button
         title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => this.props.navigation.navigate('GrowerNews')}
       />
       <Button
         title="Go back"
         onPress={() => this.props.navigation.goBack()}
-      />
+      /> */}
       </View>
     );
   }
 }
-{/* <HomeScreen />  */}
-  
-export default DetailsScreen;

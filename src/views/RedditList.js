@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 // import {RedditCard, RedditCardSection} from '../components';
 import { RedditCard } from '../components/Cards/RedditCard'; 
 import { RedditCardSection } from '../components/Cards/RedditCardSection'; 
-import {Text, View, ScrollView, StyleSheet, Image} from 'react-native';
-import {navigation, createStackNavigator} from 'react-navigation'; 
+import { Text, View, ScrollView, StyleSheet, Image } from 'react-native';
+import { navigation } from 'react-navigation'; 
 const data = [
     { 
       Title: 'Galaxy', 
@@ -20,10 +20,18 @@ const data = [
   ];
   
 class RedditList extends Component {
+    constructor(props) {
+        super(props);
     
-    onPressButton =() => {
-        alert('wwtfsss');
-        navigation.navigate('Details');
+        // need to bind `this` to access props in handler
+        
+        // this.onPressButton = this.onPressButton.bind(this);
+      }
+    
+    onPressButton = () => {
+        // alert(typeof this.props.navigation);
+        // this.navigation
+        this.props.navigation.navigate('Details');
     }    
 
 
